@@ -36,7 +36,7 @@ def share(request,id):
                     message_content.append(person)
                 no1 = str(datetime.datetime.now().timestamp()+(random.randint(1,999)*10000)).split('.')
                 listno = str(int(no1[0])+int(no1[1]))
-                date = datetime.datetime.now()
+                date = datetime.datetime.now() + datetime.timedelta(hours=5,minutes=30)
                 saveddate = date
 
                 Lists(list_no=listno,date=date,title=title,items=Lists.objects.get(list_no=id).items).save()

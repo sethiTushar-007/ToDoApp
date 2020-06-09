@@ -47,7 +47,7 @@ def delete(request,id):
                 for my in myl:
                     if my.ishost:
                         MyLists.objects.filter(list_no=id).delete()
-                        DeletedList(list_no=id,delete_date = datetime.datetime.now()).save()
+                        DeletedList(list_no=id,delete_date = datetime.datetime.now()+datetime.timedelta(hours=5,minutes=30)).save()
                         Sharing.objects.filter(list_no=id,host=user.email).delete()
                         Lists_Dates.objects.filter(list_no=id).delete()
                     else:

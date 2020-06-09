@@ -41,7 +41,7 @@ def checklist(request,id):
         else:
             i=1
             new_list = []
-            date = datetime.datetime.now()
+            date = datetime.datetime.now() + datetime.timedelta(hours=5,minutes=30)
             is_checked = request.POST
             for it in item:
                 if 'item-'+str(i)+' ' in is_checked or 'item-'+str(i) in is_checked:

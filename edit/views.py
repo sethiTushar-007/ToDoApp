@@ -71,7 +71,7 @@ def edit(request,id):
             
                 i+=1
 
-            saveddate = datetime.datetime.now()
+            saveddate = datetime.datetime.now() + datetime.timedelta(hours=5,minutes=30)
             savedby = user.email
             ishost = MyLists.objects.get(list_no=id,email=user.email).ishost
             Lists.objects.filter(list_no=id).update(title=title,items=items)

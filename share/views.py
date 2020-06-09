@@ -50,7 +50,7 @@ def share(request,id):
                 Lists.objects.filter(list_no=id).update(isshared=False)
             else:
                 Lists.objects.filter(list_no=id).update(isshared=True)
-            lastsharedon = datetime.datetime.now()
+            lastsharedon = datetime.datetime.now() + datetime.timedelta(hours=5,minutes=30)
             shares = Sharing.objects.filter(host=user.email,list_no=id)
             lastpersons = []
             mail_to_send_to = []

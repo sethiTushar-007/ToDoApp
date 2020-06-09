@@ -27,9 +27,8 @@ def listsave(request):
                 i+=1
             no1 = str(datetime.datetime.now().timestamp()+(random.randint(1,9999)*1000)).split('.')
             listno = str(int(no1[0])+int(no1[1]))
-            date = timezone.localtime()
-            saveddate = datetime.datetime.now()
-
+            date = datetime.datetime.now() + datetime.timedelta(hours=5,minutes=30)
+            saveddate = date
             Lists(list_no=listno,date=date,title=title,items=items).save()
             MyLists(email=user.email,list_no=listno,ishost=True).save()
             ListItems(list_no=listno,lastsavedon=saveddate,lastsavedby=user.email,items=items1).save()
