@@ -1,0 +1,53 @@
+﻿{% load static %}
+<!Doctype html>
+<html>
+<head>
+    <title>New list</title>
+    <meta charset="utf-8">
+    <meta name="description" content="This is the new list page.">
+    <meta name="author" content="Tushar Sethi">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+</head>
+<body onload="readyToRun()">
+    <div id="loading3"><img src="{% static 'loader.gif' %}"></div>
+    <div class="everything">
+        <a href="../" class="gotohome">Go to home</a>
+        <form method="post" action="../newlist/save" autocomplete="off">
+            {% csrf_token %}
+            <div class="title text-center">
+                <input type="text" name="title" placeholder="Title" required>
+                <div class="save-btn-1">
+                    <button class="save-btn" type="submit">Save the list</button>
+                </div>
+            </div>
+            <div class="container">
+                <div class="my-container text-center" id="notesID">
+                    <div class="my-note" id="my-note-1">
+                        <input class="my-note-input" id="item-1" type="text" name="item1" placeholder="Add an item" onfocus="focusMe(this.id)">
+                        <button class="make-button-invisible" type="button">X</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <script>
+        function readyToRun() {
+            var loader = document.getElementById('loading3')
+            loader.style.display = 'none';
+        }
+
+    </script>
+    <script src="{% static 'min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+﻿{% load static %}
+<!Doctype html>
+<html>
+<head>
+    <title>Checklist</title>
+    <meta charset="utf-8">
+    <meta name="description" content="This is the checklist page.">
+    <meta name="author" content="Tushar Sethi">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="{% static 'style1.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+</head>
+<body onload="readyToRun()">
+    <div id="loading2"><img src="{% static 'loader.gif' %}"></div>
+    <div class="everything">
+        <div class="container">
+            <a href="../../" class="gotohome">Go to home</a>
+            {% if info.isshared %}
+            {% if info.ishost %}
+            <div class="share-send">
+                <a href="../../share/{{info.list_no}}" class="share">SHARE</a>
+                <a href="../../send/{{info.list_no}}" class="send">SEND</a>
+            </div>
+            {% endif %}
+            {% else %}
+            <div class="share-send">
+                <a href="../../share/{{info.list_no}}" class="share">SHARE</a>
+                <a href="../../send/{{info.list_no}}" class="send">SEND</a>
+            </div>
+            {% endif %}
+            <div class="my-container text-center">
+
+
+                <div class="headers">
+
+                    <h1 class="title">{{info.title}}</h1>
+                    <a href="../{{info.list_no}}/delete-my-list" class="delete">DELETE</a>
+                    <a href="../../edit/{{info.list_no}}" class="edit">EDIT</a>
+                    <hr>
+                    {% if info.isshared %}
+                    <p id="create-time">Last updated on : {{info.date}}</p>
+                    <p id="saved-time">Last saved on : {{info.saveddate}}</p>
+                    <p id="saved-time">Last saved by : {{info.savedby}}</p>
+
+                    {% else %}
+                    <p id="create-time">Last updated on : {{info.date}}</p>
+                    <p id="saved-time">Last saved on : {{info.saveddate}}</p>
+                    {% endif %}
+
+                    <p>Items remaining : <span id="remaining-items">0</span></p>
+                    <hr>
+                    <span class="uncheckall" onclick="uncheckall()">Uncheck all</span>
+                    <span class="checkall" onclick="checkall()">Check all</span>
+                </div>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    {% for item in items %}
+                    {% if item.ischecked %}
+                    <div class="my-list" id="item%{{item.id}}" onclick="clicked(this.id)">
+                        <input class="checkboxes" type="checkbox" name="item-{{item.id}}" id="item-{{item.id}}" checked>
+                        <label for="item-{{item.id}}"><i class="fas fa-check"></i><span class="label text-center">{{item.item}}</span></label>
+                    </div>
+
+                    {% else %}
+                    <div class="my-list" id="item%{{item.id}}" onclick="clicked(this.id)">
+                        <input class="checkboxes" type="checkbox" name="item-{{item.id}} " id="item-{{item.id}}">
+                        <label for="item-{{item.id}}"><i class="fas fa-check"></i><span class="label text-center">{{item.item}}</span></label>
+                    </div>
+
+                    {% endif %}
+                    {% endfor %}
+                    <div class="save-btn-1">
+                        <button class="save-btn" type="submit">Save the checklist</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% if messages %}
+        {% for message in messages %}
+        <script>
+            alert('{{message}}')
+        </script>
+        {% endfor %}
+        {% endif %}
+
+    </div>
+
+    <script>
+        function readyToRun() {
+            var loader = document.getElementById('loading2')
+            loader.style.display = 'none';
+        }
+    </script>
+    <script src="{% static 'min1.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>

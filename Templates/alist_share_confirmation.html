@@ -1,0 +1,17 @@
+{% autoescape off %}
+Hi {{name}},
+
+{{message}}
+
+{% for c in content %}
+{{c}}
+{% endfor %}
+
+Please click on the link to view the list,
+http://{{ domain }}/
+
+Do not reply.
+
+Thanks
+sethi-todoapp
+{% endautoescape %}

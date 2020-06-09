@@ -1,0 +1,76 @@
+﻿{% load static %}
+<!Doctype html>
+<html>
+<head>
+    <title>Edit</title>
+    <meta charset="utf-8">
+    <meta name="description" content="This is the edit list page.">
+    <meta name="author" content="Tushar Sethi">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+</head>
+<body onload="readyToRun()">
+    <div id="loading3"><img src="{% static 'loader.gif' %}"></div>
+    <div class="everything text-center">
+        <a href="../../" class="gotohome">Go to home</a>
+        <div class="dates">
+            <p class="date text-center">Created on : {{info.createdon}}</p>
+            {% if info.isshared %}
+            <p class="date text-center">Created by : {{info.createdby}}</p>
+            {% endif %}
+            <p class="date text-center">Last updated on : {{info.updatedon}}</p>
+            {% if info.isshared %}
+            <p class="date text-center">Last updated by : {{info.updatedby}}</p>
+            {% endif %}
+        </div>
+        <form class="text-center" method="post" action="" autocomplete="off">
+            {% csrf_token %}
+            <div class="title text-center">
+                <input type="text" name="title" placeholder="Title" value="{{info.title}}" required>
+
+                <div class="save-btn-1">
+                    <button class="save-btn" type="submit">Save the list</button>
+                </div>
+            </div>
+            <div class="container text-center">
+                <div class="my-container text-center" id="notesID">
+                    {% for item in items %}
+                    {% if item.isFirst %}
+                    <div class="my-note" id="my-note-{{item.id}}">
+                        <input class="my-note-input" id="item-{{item.id}}" type="text" name="item{{item.id}}" placeholder="Add an item" value="{{item.item}}">
+                        <button class="make-button-invisible" type="button">X</button>
+                    </div>
+                    {% else %}
+                    <div class="my-note" id="my-note-{{item.id}}">
+                        <input class="my-note-input" id="item-{{item.id}}" type="text" name="item{{item.id}}" placeholder="Add an item" value="{{item.item}}">
+                        <button class="button" id="x-{{item.id}}" type="button" onclick="removeElement(this.id)">X</button>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    <div class="my-note" id="my-note-{{new_id}}">
+                        <input class="my-note-input" id="item-{{new_id}}" type="text" name="item{{new_id}}" placeholder="Add an item" onfocus="focusMe(this.id)">
+                        <button class="button" id="x-{{new_id}}" type="button" onclick="removeElement(this.id)">X</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function readyToRun() {
+            var loader = document.getElementById('loading3')
+            loader.style.display = 'none';
+        }
+
+    </script>
+
+    <script src="{% static 'min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

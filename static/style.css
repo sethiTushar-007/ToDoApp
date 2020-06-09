@@ -1,0 +1,140 @@
+*{
+    padding:0;
+    margin:0;
+    
+}
+
+#loading3 {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #fff center;
+    z-index: 99999;
+    text-align: center;
+}
+
+#loading3 img {
+    width: 50px;
+    margin-top:30%;
+    vertical-align: central;
+}
+.everything{
+    margin-top:5%;
+    text-align:center;
+}
+.gotohome {
+    padding-top:5%;
+    color: #aaaaaa;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.gotohome:hover {
+    color: #aaaaaa;
+    text-decoration:none;
+}
+.title .save-btn-1 {
+    margin-top: 10px;
+}
+.title .save-btn-1 .save-btn {
+    color: #fff;
+    background-color: #13095d;
+    outline: none;
+    border: 0;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-top: 8%;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.title input {
+    border: 0;
+    border-bottom: 1px solid #555;
+    background: transparent;
+    width: 50%;
+    margin-top:3%;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 8px 20px 5px 20px;
+    font-size: 16px;
+    color: #000;
+    font-weight:600;
+    text-align:center;
+}
+.dates{
+    margin-top:10px;
+}
+.dates .date {
+    color: #077f96;
+    font-weight: 500;
+    font-style: italic;
+}
+.add-emails {
+    margin-top: 6%;
+    margin-bottom:5%;
+}
+.add-emails .add-email-para {
+    color: #077f96;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 10%;
+    padding-right: 10%
+}
+.container{
+    padding:0px 30px;
+}
+.my-container {
+    font-size: 16px;
+    margin-top: 40px;
+    margin-bottom:40px;
+    width: 100%;
+    padding-top:30px;
+    padding-bottom:20px;
+    padding-left:4%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.3);
+    text-align:center;
+}
+.make-button-invisible{
+    margin-left:12px;
+    opacity:0;
+}
+.button{
+    color:blue;
+    font-weight:600;
+    border:none;
+    margin-left:20px;
+    background-color:#fff;
+}
+.my-note-input {
+    border: 0;
+    border-bottom: 1px solid rgba(255, 0, 0, .2);
+    width:70%;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.my-note-input:focus{
+    border-color:blue;
+}
+.my-note-input::before {
+    content:'hello';
+}
+input:focus {
+    outline: none;
+}
+button:focus{
+    outline:none;
+}
+input::-webkit-input-placeholder {
+    opacity: 0.3;
+}
+
+
+
+
+
+
+

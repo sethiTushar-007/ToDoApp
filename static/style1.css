@@ -1,0 +1,183 @@
+*{
+    padding:0;
+    margin:0;
+    justify-content:center;
+    align-items:center;
+    
+}
+#loading2 {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #fff center;
+    z-index: 99999;
+    text-align: center;
+}
+
+#loading2 img {
+    margin-top:30%;
+    width: 50px;
+    vertical-align: central;
+}
+.everything{
+    padding-bottom:20px;
+}
+.container{
+    padding-top:5%;
+    text-align:center;
+}
+.gotohome {
+    margin-top: 5%;
+    border: none;
+    color: #aaaaaa;
+    font-family: 'Balsamiq Sans', cursive;
+}
+.gotohome:hover{
+    text-decoration:none;
+    color:#aaaaaa;
+}
+.my-container {
+    padding:20px 20px 10px 20px;
+    background-color:#fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.3);
+    text-align: center;
+    background-color:#fff;
+    margin-top:5%;
+    margin-bottom:10%;
+}
+.headers .title {
+    font-family: 'Roboto', sans-serif;
+    color: blue;
+}
+.headers p{
+    color:#077f96;
+    font-weight:500;
+}
+.headers #saved-time, .headers #create-time{
+    font-style:italic;
+}
+
+.my-container .my-list {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.28);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.my-container .my-list input[type=checkbox]{
+    position:absolute;
+    width:0;
+    height:0;
+    visibility:hidden;
+}
+.my-container .my-list label {
+    position: relative;
+    display: block;
+    padding: 0.75em 1.5em 0.75em 0.1em;
+    font-family: 'Roboto', sans-serif;
+    vertical-align: middle;
+    font-weight: 500;
+}
+.my-container .my-list label .fa-check{
+    font-size:1.7em;
+    color:blue;
+    opacity:0;
+}
+.my-container .my-list input[type=checkbox]:checked + label .fa-check{
+    opacity:1;
+}
+.my-container .my-list label .label{
+    color:blue;
+}
+.my-container .my-list input[type=checkbox]:checked + label .label{
+    color:#aaaaaa;
+    text-decoration:line-through;
+}
+.save-btn-1 {
+    margin-top: 10%;
+    margin-bottom:5%;
+}
+
+.save-btn-1 .save-btn {
+    color: #fff;
+    background-color: #13095d;
+    outline: none;
+    border: 0;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.headers .delete {
+    margin-top:1%;
+    margin-right:10%;
+    text-align: start;
+    background-color: transparent;
+    border:none;
+    color: #aaaaaa;
+}
+.headers .edit {
+    margin-top: 1%;
+    margin-left: 10%;
+    text-align: end;
+    border: none;
+    background-color: transparent;
+    color: #aaaaaa;
+}
+
+.headers .edit:hover, .headers .delete:hover {
+    text-decoration: none;
+}
+
+.headers .uncheckall {
+    margin-top: 1%;
+    margin-right: 8%;
+    text-align: start;
+    background-color: transparent;
+    border: none;
+    color: #aaaaaa;
+}
+
+.headers .checkall {
+    margin-top: 1%;
+    margin-left: 8%;
+    text-align: end;
+    border: none;
+    background-color: transparent;
+    color: #aaaaaa;
+}
+
+.headers .uncheckall:hover,.headers .checkall:hover{
+    cursor:pointer;
+}
+.share-send .share {
+    margin-top: 1%;
+    margin-right: 10%;
+    text-align: start;
+    background-color: transparent;
+    border: none;
+    color: #aaaaaa;
+}
+.share-send{
+    margin-top:3%
+}
+.share-send .send {
+    margin-top: 1%;
+    margin-left: 10%;
+    text-align: end;
+    border: none;
+    background-color: transparent;
+    color: #aaaaaa;
+}
+.share-send .share:hover, .share-send .send:hover {
+    text-decoration: none;
+}
+
