@@ -45,11 +45,11 @@
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
-					<div class="wrap-input100-extend validate-input" data-validate="8 characters long valid password is required which should contain letters or numbers only">
+					<div class="wrap-input100-extend validate-input" data-validate="6 to 10 characters long valid password is required which should contain letters or numbers only">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="password" value="{{password}}" autocomplete="off" required pattern='^[a-zA-Z0-9]{8}$' oninvalid="this.setCustomValidity('8 characters long valid password is required which should contain letters or numbers only')" oninput="this.setCustomValidity('')">
+						<input class="input100" type="password" name="password" value="{{password}}" autocomplete="off" required pattern='^[a-zA-Z0-9]{6,10}$' oninvalid="this.setCustomValidity('6 to 10 characters long valid password is required which should contain letters or numbers only')" oninput="this.setCustomValidity('')">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 					<div class="text-center p-t-1">
