@@ -37,7 +37,7 @@
                 <div class="my-container text-center" id="notesID">
 
                     <div class="my-note" id="my-note-{{new_id}}">
-                        <input class="my-note-input" id="item-{{new_id}}" type="email" name="item{{new_id}}" placeholder="Add Email" onfocus="focusMe(this.id)" oninvalid="this.setCustomValidity('Valid email ID is required.')" oninput="this.setCustomValidity('')">
+                        <input class="my-note-input" id="item-{{new_id}}" type="email" name="item{{new_id}}" placeholder="Add Email" onfocus="focusMe(this.id)" oninvalid="this.setCustomValidity('Valid email ID is required.')" oninput="this.setCustomValidity('')" required>
                         <button class="make-button-invisible" id="x-{{new_id}}" type="button" onclick="removeElement(this.id)">X</button>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     {% for person in persons %}
                     {% if person.isFirst %}
                     <div class="my-note" id="my-note-{{person.id}}">
-                        <input class="my-note-input" id="item-{{person.id}}" type="email" name="item{{person.id}}" placeholder="Add Email" value="{{person.person}}" oninvalid="this.setCustomValidity('Valid email ID is required')" oninput="this.setCustomValidity('')">
+                        <input class="my-note-input" id="item-{{person.id}}" type="email" name="item{{person.id}}" placeholder="Add Email" value="{{person.person}}" oninvalid="this.setCustomValidity('Valid email ID is required')" oninput="this.setCustomValidity('')" required>
                         <button class="make-button-invisible" type="button">X</button>
                     </div>
                     {% else %}
