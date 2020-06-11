@@ -12,6 +12,7 @@ def main_screen(request):
     
     if request.user.is_authenticated:
         user = request.user
+        username = user.first_name + ' ' + user.last_name
         mylists = MyLists.objects.filter(email=user.email)
         list_nos = []
         for mylist in mylists:
@@ -29,7 +30,7 @@ def main_screen(request):
             else:
                 list_nos.append(myList(isshared=False,ishost=True,list_no=mylist.list_no,title=lists.title,date=lists.date.strftime('%d %b, %Y at %I:%M %p')))
         list_nos.reverse()
-        return render(request,'mainpage.html',{'lists':list_nos})
+        return render(request,'mainpage.html',{'username':username,'lists':list_nos})
     else:
         return redirect('../../account/signin')
 def delete(request,id):
