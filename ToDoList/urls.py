@@ -20,6 +20,7 @@ urlpatterns = [
     path('',include('mainpage.urls')),
     path('checklist/',include('checklist.urls')),
     path('edit/',include('edit.urls')),
+    path('accounts/',include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('newlist/',include('newlist.urls')),
     path('account/',include('accounts.urls')),

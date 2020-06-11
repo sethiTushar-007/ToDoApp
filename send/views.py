@@ -34,7 +34,7 @@ def share(request,id):
                     message_content.append(person+' ('+User.objects.get(email=person).first_name+')')
                 else:
                     message_content.append(person)
-                no1 = str(datetime.datetime.now().timestamp()+(random.randint(1,999)*10000)).split('.')
+                no1 = str(datetime.datetime.now().timestamp()+(random.randint(1,9999)*random.randint(1,8888))).split('.')
                 listno = str(int(no1[0])+int(no1[1]))
                 date = datetime.datetime.now() + datetime.timedelta(hours=5,minutes=30)
                 saveddate = date
