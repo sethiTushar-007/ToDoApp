@@ -39,7 +39,7 @@
 					<span class="login100-form-title p-b-26">
 						Your are logged in as
 					</span>
-					{% ispicture %}
+					{% if backends.associated %}
 					<div class="profile-pic text-center">
 						<img src="{{user.socialaccount_set.get_avatar_url}}" alt="Profile Pic">
 					</div>

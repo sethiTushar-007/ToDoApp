@@ -11,7 +11,6 @@ from django.http import HttpResponse
 from django.conf import settings
 from datetime import datetime
 import random
-from django.contrib.auth.backends
 # Password is hashed such that a character in their specific ascii range (lower case, upper case, numeric) is converted to the ascii(index-2),ascii(index+1),ascii(index+3) and #,@,! are added to create confusion.
 
 def convertToHashpassword(name):
@@ -193,21 +192,11 @@ def verify(request,id):
         return HttpResponse('Link is closed. Email ID already verified.')
                 
 def details(request):
-    ispicture=False
-    if request.user.is_authenticated and backends.associated :
+    
+    if request.user.is_authenticated :
         user = request.user
         if request.method=='GET':
-            ispicture=True
-            return render(request,'details.html',{'ispicture':ispicture})
-        else:
-            username = request.POST['username']
-            user.first_name = username
-            user.save()
-            return redirect('/')
-    elif request.user.is_authenticated and not backends.associated :
-        user = request.user
-        if request.method=='GET':
-            return render(request,'details.html',{'ispicture':ispicture})
+            return render(request,'details.html')
         else:
             username = request.POST['username']
             user.first_name = username
