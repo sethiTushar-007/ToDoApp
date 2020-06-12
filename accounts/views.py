@@ -11,7 +11,7 @@ from django.http import HttpResponse
 from django.conf import settings
 from datetime import datetime
 import random
-
+from allauth.account.models import SocialAccount
 # Password is hashed such that a character in their specific ascii range (lower case, upper case, numeric) is converted to the ascii(index-2),ascii(index+1),ascii(index+3) and #,@,! are added to create confusion.
 
 def convertToHashpassword(name):
@@ -193,10 +193,25 @@ def verify(request,id):
         return HttpResponse('Link is closed. Email ID already verified.')
                 
 def details(request):
-    if request.user.is_authenticated :
+    ispicture=False
+    if request.user.is_authenticated and backends.associated :
         user = request.user
         if request.method=='GET':
-            return render(request,'details.html')
+            data = SocialAccount.objects.all()
+            for e in data:
+                if e.extra_data.get('email')==user.email:
+                    ispicture=True
+                    source = e.get('picture')
+            return render(request,'details.html',{'ispicture':ispicture,'source':source})
+        else:
+            username = request.POST['username']
+            user.first_name = username
+            user.save()
+            return redirect('/')
+    elif request.user.is_authenticated and not backends.associated :
+        user = request.user
+        if request.method=='GET':
+            return render(request,'details.html',{'ispicture':ispicture})
         else:
             username = request.POST['username']
             user.first_name = username
