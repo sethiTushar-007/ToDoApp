@@ -109,7 +109,7 @@ def login(request):
             if request.COOKIES.get('ssetoken'):
                 email = convertToOriginalemail(request.COOKIES['ssetoken'])
                 password = convertToOriginalpassword(request.COOKIES['ssptoken'])
-                if not User.objects.filter(username=email,password=password).exists():
+                if not User.objects.filter(email=email,password=password).exists():
                     email,password = '',''
             return render(request,'login.html',{'email':email,'password':password})
     else:
