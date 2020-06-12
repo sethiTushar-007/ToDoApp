@@ -41,7 +41,7 @@
 					</span>
 					{% ispicture %}
 					<div class="profile-pic text-center">
-						<img src="{{source}}" alt="Profile Pic">
+						<img src="{{user.socialaccount_set.get_avatar_url}}" alt="Profile Pic">
 					</div>
 					{% endif %}
 					<div class="wrap-input100 validate-input" data-validate="Minimum 4 characters long username is required which should contain letters or numbers only">
