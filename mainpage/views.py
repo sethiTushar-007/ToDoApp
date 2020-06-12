@@ -15,9 +15,11 @@ def main_screen(request):
         if user.last_name != '':
             user.first_name = user.first_name + ' ' + user.last_name
             user.last_name = ''
+            user.save()
            
-        user.username = user.first_name
+        user.username = user.email
         user.save()
+        
 
         mylists = MyLists.objects.filter(email=user.email)
         list_nos = []
