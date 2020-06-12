@@ -12,9 +12,9 @@ def main_screen(request):
     
     if request.user.is_authenticated:
         user = request.user
-        if user.last_name is not None:
+        if user.last_name != '':
             user.first_name = user.first_name + ' ' + user.last_name
-            user.last_name = None
+            user.last_name = ''
             user.save()
 
         mylists = MyLists.objects.filter(email=user.email)
