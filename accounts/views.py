@@ -114,7 +114,8 @@ def login(request):
                 else:
                     email = ''
                     password = ''
-                return render(request,'login.html',{'email':email,'password':password})
+            return render(request,'login.html',{'email':email,'password':password})
+            
             
     else:
         email = request.POST['email']
