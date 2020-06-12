@@ -112,10 +112,7 @@ def login(request):
                 if User.objects.filter(username=email,password=password).exists():
                     return render(request,'login.html',{'email':email,'password':password})
                 else:
-                    response = render(request,'login.html',{'email':'','password':''})
-                    response.delete_cookie('ssetoken')
-                    response.delete_cookie('ssptoken')
-                    return response
+                    return render(request,'login.html',{'email':'','password':''})
             
     else:
         email = request.POST['email']
