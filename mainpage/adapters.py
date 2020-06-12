@@ -10,4 +10,4 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
             if User.objects.filter(username=sociallogin.email).exists():
                 User.objects.filter(username=email).delete()
                 return super(SocialAccountAdapter,self).pre_social_login(request,sociallogin)
-	    return super(SocialAccountAadapter,self).pre_social_login(request,sociallogin)
+            return super(SocialAccountAadapter,self).pre_social_login(request,sociallogin)
