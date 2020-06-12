@@ -512,6 +512,7 @@ iframe {
 }
 
 .profile-pic{
+    width:150px;
     border-radius:30%;
 }
 
