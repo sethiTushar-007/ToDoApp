@@ -116,7 +116,6 @@ def login(request):
         user = auth.authenticate(username=email,password=password)
         if user is not None:
             response = redirect('../')
-            
             if 'remember' in request.POST:
                 response.set_cookie('ssetoken',convertToHashemail(email),15552000)
                 response.set_cookie('ssptoken',convertToHashpassword(password),15552000)
