@@ -16,7 +16,7 @@ def main_screen(request):
             user.first_name = user.first_name + ' ' + user.last_name
             user.last_name = ''
            
-        user.username = email
+        user.username = user.email
         user.save()
 
         mylists = MyLists.objects.filter(email=user.email)
