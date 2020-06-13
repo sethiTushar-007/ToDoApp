@@ -196,7 +196,11 @@ def details(request):
     if request.user.is_authenticated :
         user = request.user
         if request.method=='GET':
-            return render(request,'details.html')
+            source = user.socialaccount_set.get_avatar_url
+            if source==None:
+                return render(request,'details.html',{'isPicture':False})
+            else:
+                return render(request,'details.html',{'isPicture':True,'source':source})
         else:
             username = request.POST['username']
             user.first_name = username
