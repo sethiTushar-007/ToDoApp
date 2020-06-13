@@ -513,7 +513,8 @@ iframe {
 
 .profile-pic img {
     border-radius: 50%;
-    width: 10%;
+    width: 30%;
+    box-shadow:0px 0px 20px 1px rgba(0,0,0,0.15);
 }
 
 
