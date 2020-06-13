@@ -37,7 +37,7 @@
 				<form class="login100-form validate-form" method="post" action="">
 					{% csrf_token %}
 					<span class="login100-form-title p-b-26">
-						Your are logged in as
+						You are logged in as
 					</span>
 					{% if user.socialaccount_set.all.0.get_avatar_url != None %}
 					<div class="profile-pic text-center p-b-26">
