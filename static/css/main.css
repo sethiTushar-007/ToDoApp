@@ -511,9 +511,11 @@ iframe {
     text-align:center
 }
 
-.profile-pic{
+.profile-pic {
+    border-radius: 30%;
+}
+.profile-pic img{
     width:20px;
-    border-radius:30%;
 }
 
 
