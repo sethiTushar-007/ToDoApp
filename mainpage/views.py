@@ -12,7 +12,11 @@ def main_screen(request):
     
     if request.user.is_authenticated:
         user = request.user
-
+        if user.last_name!='':
+            user.first_name = user.first_name + user.last_name
+            user.save()
+        user.username = user.email
+        user.save()
         mylists = MyLists.objects.filter(email=user.email)
         list_nos = []
         for mylist in mylists:
