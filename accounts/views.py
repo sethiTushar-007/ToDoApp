@@ -196,7 +196,7 @@ def details(request):
     if request.user.is_authenticated :
         user = request.user
         if request.method=='GET':
-            source = user.socialaccount_set.all[0].extra_data['picture']
+            source = user.socialaccount_set.filter(provider='google')[0].extra_data['picture']
             if source==None:
                 return render(request,'details.html',{'isPicture':False})
             else:
