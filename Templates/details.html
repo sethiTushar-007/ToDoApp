@@ -39,17 +39,13 @@
 					<span class="login100-form-title p-b-26">
 						Your are logged in as
 					</span>
-					{% if not user.is_anonymous %}
+					{% if user.socialaccount_set.filter(user) %}
 					<div class="profile-pic text-center p-b-26">
-						<img src="{{user.socialaccount_set.all.0.get_avatar_url}}" alt="Profile Pic">
+						<img src="{{user.socialaccount_set.filter(user).0.get_avatar_url}}" alt="Profile Pic">
 					</div>
 
 					{% endif %}
-					{% if ispicture %}
-					<div class="profile-pic text-center p-b-28">
-						<img src="{{source}}" alt="Profile Pic">
-					</div>
-					{% endif %}
+					
 					<div class="wrap-input100 validate-input" data-validate="Minimum 4 characters long username is required which should contain letters or numbers only">
 						<input class="input100" type="text" name="username" value="{{user.first_name}}" autocomplete="off" required pattern="^[a-zA-Z0-9_ ]{4,100}$" oninvalid="this.setCustomValidity('Minimum 4 characters long username is required which should contain letters or numbers only')" oninput="this.setCustomValidity('')">
 						<span class="focus-input100" data-placeholder=""></span>

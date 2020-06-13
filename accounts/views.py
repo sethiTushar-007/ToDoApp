@@ -197,14 +197,7 @@ def details(request):
     if request.user.is_authenticated :
         user = request.user
         if request.method=='GET':
-            source = user.socialaccount_set.all()[0].extra_data['picture']
-            social_info = SocialAccount.objects.filter(provider='google')
-            for s in social_info:
-                if s.extra_data['email']==user.email:
-                    source = s.extra_data['picture']
-                    return render(request,'details.html',{'isPicture':True,'source':source})
-            else :
-                return render(request,'details.html',{'isPicture':False})
+            return render(request,'details.html')
            
         else:
             username = request.POST['username']
