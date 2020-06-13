@@ -39,9 +39,9 @@
 					<span class="login100-form-title p-b-26">
 						Your are logged in as
 					</span>
-					{% if user.socialaccount_set.filter(user) %}
+					{% if ispicture %}
 					<div class="profile-pic text-center p-b-26">
-						<img src="{{user.socialaccount_set.filter(user).0.get_avatar_url}}" alt="Profile Pic">
+						<img src="{{source}}" alt="Profile Pic">
 					</div>
 
 					{% endif %}

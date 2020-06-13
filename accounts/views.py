@@ -197,7 +197,12 @@ def details(request):
     if request.user.is_authenticated :
         user = request.user
         if request.method=='GET':
-            return render(request,'details.html')
+            source = user.last_name
+            if source==None:
+                ispicture=False
+            else:
+                ispicture=True
+            return render(request,'details.html',{'ispicture':ispicture,'source':source})
            
         else:
             username = request.POST['username']
