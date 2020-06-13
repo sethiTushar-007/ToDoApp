@@ -197,7 +197,8 @@ def details(request):
     if request.user.is_authenticated :
         user = request.user
         if request.method=='GET':
-            social_info = SocialAccount.objects.all()
+            source = user.socialaccount_set.all()[0].extra_data['picture_url']
+            social_info = SocialAccount.objects.filter(provider='google')
             for s in social_info:
                 if s.extra_data['email']==user.email:
                     source = s.extra_data['picture']
