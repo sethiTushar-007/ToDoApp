@@ -40,7 +40,7 @@
 						Your are logged in as
 					</span>
 					{% if not user.is_anonymous %}
-					<div class="profile-pic text-center">
+					<div class="profile-pic text-center p-b-26">
 						<img src="{{user.socialaccount_set.all.0.get_avatar_url}}" alt="Profile Pic">
 					</div>
 					{% endif %}
