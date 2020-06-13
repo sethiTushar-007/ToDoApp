@@ -197,12 +197,14 @@ def details(request):
     if request.user.is_authenticated :
         user = request.user
         if request.method=='GET':
-            source = SocialAccount.objects.filter(user=user)[0].extra_data['picture']
-            
-            if source==None:
+            social_info = SocialAccount.objects.all
+            for s in social_info:
+                if s.extra_data['email']==user.email:
+                    source = s.extra_data['picture']
+                    return render(request,'details.html',{'isPicture':True,'source':source})
+            else :
                 return render(request,'details.html',{'isPicture':False})
-            else:
-                return render(request,'details.html',{'isPicture':True,'source':source})
+           
         else:
             username = request.POST['username']
             user.first_name = username
