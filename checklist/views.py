@@ -12,10 +12,15 @@ def checklist(request,id):
         lists = Lists.objects.get(list_no=id)
         mylists = MyLists.objects.get(list_no=id,email=user.email)
         listitems = ListItems.objects.get(list_no=id)
+        listdates = Lists_Dates.objects.filter(list_no=id)
         item = listitems.items
         if request.method=='GET':
             
             saveddate = listitems.lastsavedon.strftime('%d %b, %Y at %I:%M %p')
+            if listdates:
+                updatedon = listdates[0].updatedon
+            else:
+                updatedon = lists.date
             if lists.isshared:
                 savedby = listitems.lastsavedby
                 if User.objects.filter(email=savedby).exists():
@@ -23,7 +28,7 @@ def checklist(request,id):
                         savedby='You'
                     else:
                         savedby = User.objects.get(email=savedby).first_name
-                list_info = myList(isshared=True,ishost=mylists.ishost,list_no=id,title=lists.title,date=lists.date.strftime('%d %b, %Y at %I:%M %p'),saveddate=saveddate,savedby=savedby)
+                list_info = myList(isshared=True,ishost=mylists.ishost,list_no=id,title=lists.title,date=updatedon.strftime('%d %b, %Y at %I:%M %p'),saveddate=saveddate,savedby=savedby)
             else:
                 list_info = myList(isshared=False,ishost=True,list_no=id,title=lists.title,date=lists.date.strftime('%d %b, %Y at %I:%M %p'),saveddate=saveddate)
         
